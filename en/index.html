@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Set up CoCo on Windows, bundle comic chapters into one CBZ, and find an app to read it.">
+  <meta name="theme-color" content="#f5f8ff">
+  <title>CoCo — Comic Collector · User guide</title>
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="alternate" hreflang="es" href="../index.html">
+  <script src="../guide.js" defer></script>
+</head>
+<body>
+  <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6c-3-2-6-2-9-1v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Zm0 0v14"/></symbol>
+    <symbol id="i-git" viewBox="0 0 24 24"><path d="M9 19c-4 1-4-2-6-2m12 4v-3.9c0-1 .1-1.4-.5-2 2.8-.3 5.7-1.3 5.7-6.1A4.7 4.7 0 0 0 19 5.7c.1-.4.5-1.7-.2-3.2 0 0-1.1-.3-3.5 1.3a13 13 0 0 0-6.6 0C6.3 2.2 5.2 2.5 5.2 2.5c-.7 1.5-.3 2.8-.2 3.2A4.7 4.7 0 0 0 3.8 9c0 4.8 2.9 5.8 5.7 6.1-.4.4-.6 1-.5 2V21"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4m-4 0h8"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-2-14-4 16"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10Zm0 0v7h7m-10 2h3m-3 3h3m-3 3h3"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m4 6 6 6-6 6m9 0h7"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5Zm-9 9 9 5 9-5m-18 4 9 5 9-5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#contenido">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inicio" aria-label="CoCo, home">
+        <span class="brand-mark" aria-hidden="true"><img src="../assets/icon.svg" alt="" width="36" height="36"></span>
+        CoCo<span class="brand-period">.</span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="navegacion" aria-label="Menu" hidden>
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg> <span class="menu-label">Menu</span>
+      </button>
+      <nav id="navegacion" class="site-nav" aria-label="Main navigation">
+        <a href="#guia">User guide</a>
+        <a href="#lectores">CBZ readers</a>
+        <a href="#preguntas">Frequently asked questions</a>
+      </nav>
+      <div class="header-actions">
+        <a class="button button-small button-outline language-switch" href="../index.html" hreflang="es" lang="es" aria-label="Versión en español">ES</a>
+        <a class="button button-small button-outline header-repo" href="#descargar" data-repo aria-label="GitHub">
+          <svg class="icon" aria-hidden="true"><use href="#i-git"/></svg> <span class="header-repo-label">GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-content">
+          <p class="eyebrow">CoCo — Comic Collector</p>
+          <h1>Your comics,<br>ready to read<span>.</span></h1>
+          <p class="hero-description">Search for a series, pick the chapters you want, and save them in a single <strong>CBZ</strong> file for offline reading.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#guia">Get started</a>
+            <a class="button button-outline" href="#lectores">Find a reader</a>
+          </div>
+        </div>
+        <figure class="hero-art">
+          <img src="../assets/icon.svg" alt="A coconut half with white flesh and a blue shell." width="160" height="160" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <div class="requirements">
+      <ul class="wrap specs" aria-label="System requirements and download format">
+        <li>
+          <span class="spec-icon"><svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg></span>
+          <div><strong>Windows</strong><span>Quick start with <code>iniciar.bat</code></span></div>
+        </li>
+        <li>
+          <span class="spec-icon"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg></span>
+          <div><strong><a href="https://www.python.org/downloads/windows/">Python 3.10 or later</a></strong><span>With pip and an internet connection</span></div>
+        </li>
+        <li>
+          <span class="spec-icon"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg></span>
+          <div><strong>One CBZ file</strong><span>All the chapters you choose</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <section id="guia" class="section guide">
+      <div class="wrap">
+        <header class="section-heading">
+          <h2>From GitHub to your first CBZ</h2>
+          <p>Set up CoCo on your computer and send the file to your favorite reader.</p>
+        </header>
+        <div class="guide-layout">
+          <ol class="steps">
+            <li id="descargar">
+              <h3>Download the project</h3>
+              <p>In the CoCo repository, choose <strong>Code → Download ZIP</strong>. Extract the ZIP and open the folder containing <code>iniciar.bat</code>.</p>
+              <a class="text-link" href="https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives" data-repo data-repo-label="Open CoCo on GitHub">How to download the ZIP</a>
+            </li>
+            <li>
+              <h3>Run <code>iniciar.bat</code></h3>
+              <p>Double-click the file. On the first run, it creates a <code>.venv</code> environment and installs the dependencies. CoCo then opens a terminal with prompts in Spanish.</p>
+            </li>
+            <li>
+              <h3>Choose a series and its chapters</h3>
+              <p>Enter the comic title at <strong lang="es">Nombre del cómic</strong>. Then enter the number next to the series and the positions shown in the chapter list. Check the titles for specials or annuals.</p>
+              <dl class="selections">
+                <div><dt><code>1</code></dt><dd>One chapter</dd></div>
+                <div><dt><code>1-6</code></dt><dd>A range</dd></div>
+                <div><dt><code>1,3,5-8</code></dt><dd>A mix of both</dd></div>
+              </dl>
+            </li>
+            <li>
+              <h3>Open your file</h3>
+              <p>When CoCo says <strong lang="es">'CBZ completo guardado en'</strong>, your file is ready in the <code>descargas</code> folder. Open the <code>.cbz</code> in your reader or copy it to your phone or tablet first.</p>
+            </li>
+          </ol>
+          <div class="guide-aside">
+            <div class="terminal">
+              <div class="terminal-bar">
+                <svg class="icon" aria-hidden="true"><use href="#i-terminal"/></svg>
+                <span>CoCo in action</span>
+                <span class="terminal-label">Example</span>
+              </div>
+              <div class="terminal-body">
+                <p class="terminal-title">CoCo — Marmota</p>
+                <dl class="terminal-example" lang="es">
+                  <dt>Nombre del cómic</dt><dd>El faro de medianoche</dd>
+                  <dt>Serie</dt><dd>1</dd>
+                  <dt>Capítulos</dt><dd>1,3,5-8</dd>
+                </dl>
+                <p class="terminal-done" lang="es">✓ CBZ completo guardado en</p>
+                <p class="terminal-path">descargas\… - 6 caps - ….cbz</p>
+              </div>
+            </div>
+            <details class="commands">
+              <summary>PowerShell commands</summary>
+              <div class="commands-body">
+                <p>Open PowerShell in the project folder.</p>
+                <div class="command-heading">
+                  <strong>Start CoCo</strong>
+                  <button class="copy-button" type="button" data-copy="cmd-start" hidden><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg> <span>Copy</span></button>
+                </div>
+                <pre><code id="cmd-start">.\iniciar.bat</code></pre>
+                <div class="command-heading">
+                  <strong>Change the output folder</strong>
+                  <button class="copy-button" type="button" data-copy="cmd-destination" hidden><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg> <span>Copy</span></button>
+                </div>
+                <pre><code id="cmd-destination">.\iniciar.bat --destino "D:\Comics"</code></pre>
+                <p>Replace <code>D:\Comics</code> with your own folder.</p>
+                <p class="screen-reader" id="estado-copia" role="status"></p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lectores" class="section readers">
+      <div class="wrap">
+        <header class="section-heading reader-heading">
+          <div>
+            <h2>CBZ readers</h2>
+            <p>Choose an app to open your comics on your device.</p>
+          </div>
+          <div class="filters" role="group" aria-label="Filter by device" hidden>
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="android" aria-pressed="false">Android</button>
+            <button type="button" data-filter="ios" aria-pressed="false">iPhone / iPad</button>
+            <button type="button" data-filter="desktop" aria-pressed="false">Desktop</button>
+          </div>
+        </header>
+        <p id="resultados" class="screen-reader" role="status"></p>
+        <div class="reader-grid">
+          <article class="reader-card" data-platform="android">
+            <span class="app-icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span>
+            <p class="platform">Android</p>
+            <h3>Kuro Reader+</h3>
+            <p>Organize local files and switch between right-to-left reading and vertical scrolling.</p>
+            <a class="text-link" href="https://play.google.com/store/apps/details?id=br.com.kurotoshiro.kuro_reader">View on Google Play<span class="screen-reader"> Kuro Reader+</span></a>
+          </article>
+          <article class="reader-card" data-platform="ios desktop">
+            <span class="app-icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>
+            <p class="platform">iPhone · iPad · Mac</p>
+            <h3>Panels</h3>
+            <p>Import CBZ files from Files or iCloud Drive and read in single-page or two-page view.</p>
+            <a class="text-link" href="https://www.panels.app/cbr-reader-ipad">View Panels</a>
+          </article>
+          <article class="reader-card" data-platform="desktop">
+            <span class="app-icon"><svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg></span>
+            <p class="platform">Windows · macOS · Linux</p>
+            <h3>YACReader</h3>
+            <p>Read on your computer and organize your comics with YACReaderLibrary.</p>
+            <a class="text-link" href="https://www.yacreader.com/downloads">View YACReader</a>
+          </article>
+          <article class="reader-card" data-platform="desktop">
+            <span class="app-icon"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg></span>
+            <p class="platform">Windows</p>
+            <h3>SumatraPDF</h3>
+            <p>Open comics, PDFs, and other files in a lightweight app with a portable version.</p>
+            <a class="text-link" href="https://www.sumatrapdfreader.org/download-free-pdf-viewer">View SumatraPDF</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="preguntas" class="section faq">
+      <div class="wrap faq-layout">
+        <header class="section-heading">
+          <h2>Frequently asked questions</h2>
+        </header>
+        <div class="faq-list">
+          <details>
+            <summary>What is a CBZ file?</summary>
+            <p>A CBZ is a ZIP archive containing the comic's images. Open it directly in a compatible reader to see the pages in order.</p>
+          </details>
+          <details>
+            <summary>Can I resume an interrupted download?</summary>
+            <p>Yes. Restart CoCo, find the same series, and choose the same chapters and output folder. CoCo reuses the verified images it saved in <code>.progreso</code>.</p>
+          </details>
+          <details>
+            <summary>What if Windows can't find Python?</summary>
+            <p>Install Python with pip and run <code>python --version</code> in a new PowerShell window to check that it works. Then open <code>iniciar.bat</code> again.</p>
+          </details>
+          <details>
+            <summary>What if no series or chapters appear?</summary>
+            <p>Check your internet connection and try searching for part of the title. If several series are affected, check the repository for updates about changes to the page catalog or reader.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="brand" href="#inicio" aria-label="CoCo, back to top">
+        <span class="brand-mark" aria-hidden="true"><img src="../assets/icon.svg" alt="" width="36" height="36"></span>
+        CoCo<span class="brand-period">.</span>
+      </a>
+      <a class="footer-link" href="#descargar" data-repo>GitHub</a>
+    </div>
+  </footer>
+</body>
+</html>

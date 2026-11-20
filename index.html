@@ -8,6 +8,7 @@
   <title>CoCo — Comic Collector · Guía de uso</title>
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <link rel="alternate" hreflang="en" href="en/index.html">
   <script src="guide.js" defer></script>
 </head>
 <body>
@@ -30,17 +31,20 @@
         <span class="brand-mark" aria-hidden="true"><img src="assets/icon.svg" alt="" width="36" height="36"></span>
         CoCo<span class="brand-period">.</span>
       </a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="navegacion" hidden>
-        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg> Menú
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="navegacion" aria-label="Menú" hidden>
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg> <span class="menu-label">Menú</span>
       </button>
       <nav id="navegacion" class="site-nav" aria-label="Navegación principal">
         <a href="#guia">Guía de uso</a>
         <a href="#lectores">Lectores CBZ</a>
         <a href="#preguntas">Preguntas frecuentes</a>
       </nav>
-      <a class="button button-small button-outline header-repo" href="#descargar" data-repo>
-        <svg class="icon" aria-hidden="true"><use href="#i-git"/></svg> GitHub
-      </a>
+      <div class="header-actions">
+        <a class="button button-small button-outline language-switch" href="en/index.html" hreflang="en" lang="en" aria-label="English version">EN</a>
+        <a class="button button-small button-outline header-repo" href="#descargar" data-repo aria-label="GitHub">
+          <svg class="icon" aria-hidden="true"><use href="#i-git"/></svg> <span class="header-repo-label">GitHub</span>
+        </a>
+      </div>
     </div>
   </header>
 

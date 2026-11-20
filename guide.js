@@ -35,6 +35,20 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+const messages = document.documentElement.lang === "en" ? {
+  readerCount: (total) => total === 1 ? "1 reader available" : `${total} readers available`,
+  copied: "Copied",
+  copySuccess: "Command copied to the clipboard.",
+  selected: "Selected",
+  copyFallback: "Command selected. Use Ctrl+C or the selection menu to copy it."
+} : {
+  readerCount: (total) => total === 1 ? "1 lector disponible" : `${total} lectores disponibles`,
+  copied: "Copiado",
+  copySuccess: "Comando copiado al portapapeles.",
+  selected: "Seleccionado",
+  copyFallback: "Comando seleccionado. Usa Ctrl+C o el menú de selección para copiarlo."
+};
+
 const filters = document.querySelector(".filters");
 const filterButtons = filters.querySelectorAll("button");
 const readers = document.querySelectorAll(".reader-card");
@@ -51,7 +65,7 @@ filterButtons.forEach((button) => {
       reader.hidden = !visible;
       if (visible) total++;
     });
-    resultStatus.textContent = total === 1 ? "1 lector disponible" : `${total} lectores disponibles`;
+    resultStatus.textContent = messages.readerCount(total);
   });
 });
 
@@ -60,26 +74,27 @@ const copyStatus = document.querySelector("#estado-copia");
 document.querySelectorAll("[data-copy]").forEach((button) => {
   const command = document.getElementById(button.dataset.copy);
   const label = button.querySelector("span");
+  const copyLabel = label.textContent;
   let resetLabel;
 
   button.hidden = false;
   button.addEventListener("click", async () => {
     try {
       await navigator.clipboard.writeText(command.textContent);
-      label.textContent = "Copiado";
-      copyStatus.textContent = "Comando copiado al portapapeles.";
+      label.textContent = messages.copied;
+      copyStatus.textContent = messages.copySuccess;
     } catch {
       const selection = window.getSelection();
       const range = document.createRange();
       range.selectNodeContents(command);
       selection.removeAllRanges();
       selection.addRange(range);
-      label.textContent = "Seleccionado";
-      copyStatus.textContent = "Comando seleccionado. Usa Ctrl+C o el menú de selección para copiarlo.";
+      label.textContent = messages.selected;
+      copyStatus.textContent = messages.copyFallback;
     }
     clearTimeout(resetLabel);
     resetLabel = setTimeout(() => {
-      label.textContent = "Copiar";
+      label.textContent = copyLabel;
       copyStatus.textContent = "";
     }, 2500);
   });
